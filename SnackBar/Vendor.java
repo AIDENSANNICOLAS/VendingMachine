@@ -11,7 +11,7 @@ public class Vendor
     // Fields:
 
     private int price;
-    private int stock;
+    private static int stock;
     private int deposit;
     private int change;
     //make a private static double variable called totalSales that has an initial value of 0 and stores the amount of money made
@@ -25,17 +25,19 @@ public class Vendor
     public Vendor(int price, int stock)
     {
         //You need to complete this using this. notation
+        this.price = price;
+        this.stock = stock;
     }
 
     /**
      * Sets the quantity of items in stock.
-     * @param qty number of items to place in stock (int)
      */
 
 
     public void setStock(int stock)
     {
         //You need to complete this using this. notation
+        this.stock = stock;
     }
 
     /**
@@ -45,16 +47,16 @@ public class Vendor
     public int getStock()
     {
         //complete this
+        return stock;
     }
 
     /**
      * Adds a specified amount (in cents) to the
      * deposited amount.
-     * @param number of cents to add to the deposit (int)
+
      */
-    public void addMoney(int d)
-    {
-        //You need to complete this using mutator
+    public void addMoney(int cents) {
+        deposit += cents;
     }
 
     /**
@@ -77,7 +79,12 @@ public class Vendor
      */
     public boolean makeSale()
     {
-        //create the makesale method
+        if (stock > 0 && deposit >= price) {
+            stock--;
+            deposit -= price;
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -100,7 +107,7 @@ public class Vendor
         */
         
 
-        String changeString="";
+        String changeString="Your change is " + Coins.getQuarters() + Coins.getDimes() + Coins.getNickles() + Coins.getPennies();
 
         return changeString;
     }
@@ -111,8 +118,13 @@ public class Vendor
     *
     * @return dollars of sales
     */
+
     public static double getTotalSales()
     {
         //complete this
+        int sales = stock;
+
+        return sales;
+
     }
 }

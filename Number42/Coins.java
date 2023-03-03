@@ -44,19 +44,19 @@ public class Coins {
 		pennies=c;            //whatever is left over
 	}
 	
-	public int getQuarters()
+	public static int getQuarters()
 	{
 		return quarters;
 	}
-	public int getDimes()
+	public static int getDimes()
 	{
 		return dimes;
 	}
-	public int getNickles()
+	public static int getNickles()
 	{
 		return nickles;
 	}
-	public int getPennies()
+	public static int getPennies()
 	{
 		return pennies;
 	}
